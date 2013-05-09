@@ -36,3 +36,9 @@ footer {
 
 	padding: 10px;
 }
+
+.btn-primary {
+
+	background-color: #00A8D9;
+	background-image: linear-gradient(to bottom, #00A8D9, #0068D9);
+}
