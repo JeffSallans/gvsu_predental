@@ -56,16 +56,29 @@
     .img_frame {
       width: 227px;
       height: 207px;
-      display: block;
-      /*overflow: hidden;*/
-      background: url(images/frame.png);
+      overflow: hidden;
+    }
+
+    .img_frame img {
+
+      position: relative;
     }
 
     .rollup10 {
 
-      display: block;
-      z-index: -1;
-      margin-top: -400px;
+      top: -210px;
+      margin-bottom: -550px;
+    }
+
+    .rollup3 {
+
+      top: -190px;
+      margin-bottom: -550px;
+    }
+
+    .frame {
+
+      top: -50px;
     }
 
     </style>
@@ -136,7 +149,10 @@
                 Attend 
               </td>
               <td class='img_row'>
-                <img src="images/frame.png" alt="3" /> 
+                <div class='img_frame'>
+                  <img class="rollup3" src="images/rollup3.png" />
+                  <img class="frame" src="images/frame.png" alt="3" /> 
+                </div>
               </td>
               <td>
                 meetings per semester
@@ -154,6 +170,7 @@
               <td class='img_row'>
                 <div class='img_frame'>
                   <img class="rollup10" src="images/rollup10.png" />
+                  <img class="frame" src="images/frame.png" alt="10" /> 
                 </div>
               </td>
               <td>
@@ -176,6 +193,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script>
+
+      var animated_attend = false;
+      var animated_hours = false;
+
       $(function(){
 
         //load navbar
@@ -194,6 +215,23 @@
         var center_pos = $('.join_orgsync a').position().left;
         $('.join_orgsync').css('text-align','left');
         $(".join_orgsync").animate({"left": (center_pos - $('.join_orgsync a').position().left) + "px"}, "slow");
+
+        $(window).scroll(function () {
+
+
+          if (!animated_attend && $(document).scrollTop() + $(window).height() * 2.0/3.0 > $('.rollup3').offset().top) {
+            $('.rollup3').animate({
+              top: "0px"
+            }, 2000);
+            animated_attend = true;
+          }
+          else if (!animated_hours && $(document).scrollTop() + $(window).height() * 2.0/3.0 > $('.rollup10').offset().top) {
+            $('.rollup10').animate({
+              top: "0px"
+            }, 2000);
+            animated_hours = true;
+          }
+        });
 
       })
     </script>
