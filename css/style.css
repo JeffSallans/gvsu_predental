@@ -12,10 +12,10 @@ body {
 	background-color: #EEEEEE;
 	font-family: "Segoe UI","Helvetica",Garuda,Arial,sans-serif;
 	font-size: 14px;
-    padding-bottom: 40px;
+    /*padding-bottom: 40px;*/
 }
 
-.all {
+.all, .all_footer {
 
 	box-shadow: 0 0 85px rgba(0, 0, 0, 0.3);
 	background-color: #FFFFFF;
@@ -25,6 +25,11 @@ body {
 
 	/*centers the div*/
 	margin: 0px auto;
+}
+
+.all_footer {
+
+	box-shadow: 0 0;
 }
 
 .all .container {
